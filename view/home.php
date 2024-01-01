@@ -10,44 +10,41 @@ ob_start();
         <div class="container">
             <div class="text-bg">
                 <div class="container">
-                    <form class="main-form">
+                    <form class="main-form" method="post" action="index.php?action=search">
                         <h3>Find Your Tour</h3>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <label>DÉPART</label>
-                                        <select class="form-control" name="depart">
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <label>DÉPART</label>
+                                    <select class="form-control" name="depart" id="depart" required>
 
-                                            <option>Ville de départ</option>
-                                            <?php foreach($cities as $city): ?>
-                                                <option><?= $city->getName(); ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <label>ARRIVÉE</label>
-                                        <select class="form-control" name="arrive">
-                                            <option>Ville d'arrivée</option>
-                                            <?php foreach($cities as $city): ?>
-                                                <option><?= $city->getName(); ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <label>Date</label>
-                                        <input class="form-control" placeholder="Any" type="date" name="Any">
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <label>VOYAGEURS</label>
-                                        <input type="number" class="form-control" name="nbrOfPerssone" value="1">
-                                    </div>
+                                        <option selected disabled>Ville de départ</option>
+                                        <?php foreach ($cities as $city) : ?>
+                                            <option><?= $city->getName(); ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <label>ARRIVÉE</label>
+                                    <select class="form-control" name="arrive" id="arrive" required>
+                                        <option selected disabled>Ville d'arrivée</option>
+                                        <?php foreach ($cities as $city) : ?>
+                                            <option><?= $city->getName(); ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <label>Date</label>
+                                    <input class="form-control" type="date" id="date" name="date" required>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <label>VOYAGEURS</label>
+                                    <input type="number" class="form-control" name="nbrOfPerssone" value="1" required>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <a href="#">search</a>
-                        </div>
+                            <div class="row col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <input type="submit" class="btn bg-orange text-white mt-4" value="search">
+                            </div>
+
                     </form>
                 </div>
             </div>
@@ -90,3 +87,39 @@ ob_start();
 
 <?php $content = ob_get_clean(); ?>
 <?php include("view/layout.php"); ?>
+
+
+<script>
+    /* Set the min date is current date */
+
+    let date_enter = document.getElementById("date");
+    const date = new Date();
+    let x = date.toISOString().split("T")[0];
+    date_enter.setAttribute('min', x);
+
+    /* End Set the min date is current date */
+
+    /* depart and arrive city are differents */
+    let depart_city = document.getElementById("depart");
+    let arrive_city_options = document.getElementById("arrive").querySelectorAll('option');
+
+    depart_city.addEventListener('change', function() {
+        arrive_city_options.forEach(function(opt) {
+            if (depart_city.value == opt.value) {
+                opt.setAttribute('disabled', '');
+            } else {
+                opt.removeAttribute('disabled')
+            }
+        });
+    });
+    /* End depart and arrive city are differents */
+
+    /* */
+    let request = new XMLHttpRequest();
+
+
+
+
+
+    /* */
+</script>

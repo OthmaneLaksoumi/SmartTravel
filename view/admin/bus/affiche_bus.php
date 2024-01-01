@@ -14,7 +14,7 @@ ob_start();
                 <a href="index.php?action=bus" class="btn text-white active-in">Les bus</a>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
-                <button class="btn bg-orange text-white">Les horaires</button>
+                <a href="index.php?action=horaire" class="btn bg-orange text-white">Les horaires</a>
 
             </div>
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
@@ -41,7 +41,8 @@ ob_start();
                             <a href="index.php?action=update_bus&matricule=<?= $bus->getMatricule() ?>" class="btn bg-success text-white">Update</a>
                         </div>
                         <div>
-                            <a href="index.php?action=delete_bus&matricule=<?= $bus->getMatricule() ?>" class="btn btn-danger w-25">Delete</a>
+                            <a href="index.php?action=delete_bus&matricule=<?= $bus->getMatricule() ?>" class="btn btn-danger">Delete</a>
+                            
                         </div>
                     </td>
 

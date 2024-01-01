@@ -8,13 +8,13 @@ ob_start();
     <div class="container mt-5">
         <div class="d-flex p-2 bg-secondary-subtle">
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
-                <a href="index.php?action=company" class="btn bg-orange text-white active-in">Les entreprises</a>
+                <a href="index.php?action=company" class="btn text-white active-in">Les entreprises</a>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
                 <a href="index.php?action=bus" class="btn bg-orange text-white">Les bus</a>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
-                <button class="btn bg-orange text-white">Les horaires</button>
+                <a href="index.php?action=horaire" class="btn bg-orange text-white">Les horaires</a>
 
             </div>
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
@@ -34,10 +34,10 @@ ob_start();
                     <td><img src="<?= $company->getImg(); ?>"></td>
                     <td>
                         <div class="my-2">
-                            <a href="index.php?action=update_company&name=<?= $company->getName(); ?>" class="btn bg-success text-white">Update</a>
+                            <a href="index.php?action=update_company&name=<?= $company->getName(); ?>" class="btn bg-success text-white w-40">Update</a>
                         </div>
                         <div>
-                            <a href="index.php?action=delete_company&name=<?= $company->getName(); ?>" class="btn btn-danger w-25">Delete</a>
+                            <a href="index.php?action=delete_company&name=<?= $company->getName(); ?>" class="btn btn-danger w-40">Delete</a>
                         </div>
                     </td>
 

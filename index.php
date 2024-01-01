@@ -3,16 +3,18 @@ include("controller/homeController.php");
 include("controller/admin/controller_company.php");
 include("controller/admin/controller_bus.php");
 include("controller/admin/controller_route.php");
+include("controller/admin/controller_horaire.php");
 
 $homeController = new homeController();
 $comanyController = new companyController();
 $busController = new busController();
 $routeController = new routeController();
+$horaireController = new horaireController();
 
-if(isset($_GET['action'])) {
+if (isset($_GET['action'])) {
     $action = $_GET['action'];
 
-    switch($action) {   
+    switch ($action) {
         case 'admin':
             $comanyController->affiche_home();
             break;
@@ -60,12 +62,37 @@ if(isset($_GET['action'])) {
             break;
         case 'add_route_action':
             $routeController->add_route_action();
+        case 'update_route':
+            $routeController->update_route();
+            break;
+        case 'update_route_action':
+            $routeController->update_route_action();
+            break;
+        case 'delete_route':
+            $routeController->delete_route();
+            break;
+        case 'horaire':
+            $horaireController->affiche_horaire();
+            break;
+        case 'add_horaire':
+            $horaireController->add_horaire();
+            break;
+        case 'add_horaire_action':
+            $horaireController->add_horaire_action();
+            break;
+        case 'update_horaire':
+            $horaireController->update_horaire();
+            break;
+        case 'update_horaire_action':
+            $horaireController->update_horaire_action();
+            break;
+        case 'delete_horaire':
+            $horaireController->delete_horaire();
+            exit;
+        case 'search':
+            $homeController->search_voyage();
+            break;
     }
-
 } else {
     $homeController->afficheHome();
 }
-
-
-
-?>

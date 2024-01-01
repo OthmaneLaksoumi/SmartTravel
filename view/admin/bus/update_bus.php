@@ -1,5 +1,5 @@
 <?php
-$title = "Ajouter une entrprise";
+$title = "Update une entrprise";
 
 ob_start();
 ?>
@@ -16,11 +16,11 @@ ob_start();
                 <a href="index.php?action=bus" class="btn active-in text-white">Les bus</a>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
-                <button class="btn bg-orange text-white">Les horaires</button>
+                <a href="index.php?action=horaire" class="btn bg-orange text-white">Les horaires</a>
 
             </div>
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
-                <button class="btn bg-orange text-white">Les routes</button>
+            <a href="index.php?action=route" class="btn bg-orange text-white">Les routes</a>
 
             </div>
         </div>
@@ -59,7 +59,7 @@ ob_start();
                 </div>
             </div>
             <div class="row mt-4 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                <input type="submit" class="btn btn-success" value="Add">
+                <input type="submit" class="btn btn-success" value="Update">
             </div>
         </form>
     </div>

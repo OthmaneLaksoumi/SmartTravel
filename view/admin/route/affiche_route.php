@@ -14,34 +14,35 @@ ob_start();
                 <a href="index.php?action=bus" class="btn bg-orange text-white">Les bus</a>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
-                <a href="index.php?action=horaire" class="btn bg-orange text-white">Les entreprises</a>
+                <a href="index.php?action=horaire" class="btn bg-orange text-white">Les horaires</a>
 
             </div>
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
                 <a href="index.php?action=route" class="btn active-in text-white">Les routes</a>
-
             </div>
         </div>
         <table class="table table-striped company-table">
             <tr>
+                <th>Number</th>
                 <th>Départ</th>
                 <th>Arrivée</th>
                 <th>Distance</th>
                 <th>Durée</th>
                 <th>Update & Delete</th>
             </tr>
-            <?php foreach ($routes as $route) : ?>
+            <?php $i = 1; foreach ($routes as $route) : ?>
                 <tr>
-                    <td><?= $route->getDepartue_city(); ?></td>
+                    <td><?= $i ?></td>
                     <td><?= $route->getDestination_city() ?></td>
                     <td><?= $route->getDistance() ?></td>
                     <td><?= $route->getDuration() ?></td>
+                    <td><?= $route->getDuration(); $i++;?></td>
 
                     <td>
                         <div class="my-2">
-                            <a href="index.php?action=update_route" class="btn bg-success text-white">Update</a>
+                            <a href="index.php?action=update_route&depart=<?= $route->getDepartue_city() ?>&arrive=<?= $route->getDestination_city() ?>" class="btn bg-success text-white">Update</a>
 
-                            <a href="index.php?action=delete_route" class="btn btn-danger w-25">Delete</a>
+                            <a href="index.php?action=delete_route&update_route&depart=<?= $route->getDepartue_city() ?>&arrive=<?= $route->getDestination_city() ?>" class="btn btn-danger w-25">Delete</a>
                         </div>
                     </td>
 

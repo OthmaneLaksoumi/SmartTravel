@@ -22,6 +22,10 @@ class horaire
         $this->destination_city = $destination_city;
     }
 
+    public function toJson() {
+        return get_object_vars($this);
+    }
+
     public function getDeparture_time()
     {
         return $this->departure_time;

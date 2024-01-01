@@ -15,7 +15,7 @@ class busDAO
 
     function get_all_bus()
     {
-        $sql = "SELECT * FROM bus";
+        $sql = "SELECT * FROM bus ORDER BY number_of_bus";
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_OBJ);
