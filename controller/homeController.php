@@ -17,7 +17,6 @@ class homeController
         $horaireDAO = new horaireDAO();
         $horaires = $horaireDAO->get_horaire_for_search($depart, $arrive, $date);
         $names = $horaireDAO->get_companies_for_horaire( $depart, $arrive, $date);
-        // $names = $horaires->get_companyName();
         include("view/search_result.php");
     }
 

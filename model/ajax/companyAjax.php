@@ -146,37 +146,6 @@ class horaireDAO
     }
 }
 
-class square
-{
-    private $x;
-    public $y;
-
-    public function __construct($x, $y)
-    {
-        $this->x = $x;
-        $this->y = $y;
-    }
-
-    public function jsonSerialize()
-    {
-        // Use get_object_vars to include private properties
-        return get_object_vars($this);
-    }
-}
-
-// $arr = array();
-// $arr[] = new square(1, 0);
-// $arr[] = new square(2, 1);
-// $arr[] = new square(1, -5);
-// echo '<pre>';
-// print_r($arr[0]->jsonSerialize());
-// $arrayObj = [];
-// foreach($arr as $obj) {
-//     $arrayObj[] = $obj->jsonSerialize();
-// }
-// echo json_encode($arrayObj);
-// $resultObj = $DAOhoraire->get_horaires_for_company($depart, $arrive, $date, $company);
-
 $DAOhoraire = new horaireDAO();
 if (isset($_GET['allHoraire'])) {
     extract($_GET);
